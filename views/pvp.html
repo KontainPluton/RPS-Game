@@ -34,9 +34,6 @@
                     <h4 class="card-title">Joueur 1</h4>
                     <h6 class="text-muted card-subtitle mb-2">Choix :</h6>
                     <select class="object-choice" id="player1-choice">
-                        <option value="1" selected="">Pierre</option>
-                        <option value="2">Papier</option>
-                        <option value="3">Ciseaux</option>
                     </select>
                 </div>
             </div>
@@ -47,9 +44,6 @@
                     <h4 class="card-title">Joueur 2</h4>
                     <h6 class="text-muted card-subtitle mb-2">Choix :&nbsp;</h6>
                     <select class="object-choice" id="player2-choice">
-                        <option value="1" selected="">Pierre</option>
-                        <option value="2">Papier</option>
-                        <option value="3">Ciseaux</option>
                     </select>
                 </div>
             </div>
@@ -58,38 +52,17 @@
     <div class="row">
         <div class="col">
             <div class="font-monospace fw-bold text-center text-bg-success">
-                <p class="fs-4" style="margin-bottom: 0px;">Joueur 1 a gagné !</p>
-                <p>Pierre casse ciseaux</p>
+                <p class="fs-4" style="margin-bottom: 0px;" id="winnerText"></p>
+                <p id="resultText"></p>
             </div>
         </div>
     </div>
     <div class="row" style="margin-top: 18px;">
-        <div class="col text-center"><button class="btn btn-primary" type="button">Envoyer</button>
-            <h6 style="margin-top: 9px;">Liste des objets disponibles en plus : (à activer)</h6>
+        <div class="col text-center"><button class="btn btn-primary" type="button" onclick="onSend()">Envoyer</button>
+            <h6 style="margin-top: 9px;">Liste des objets disponibles : (à activer)</h6>
         </div>
     </div>
     <div class="row" style="margin-top: 23px;" id="list-objects">
-        <div class="col">
-            <div class="card">
-                <div class="card-body text-center" style="margin: 1px;padding: 10px;"><img src="assets/img/clipboard-image-1.png" style="width: 53px;">
-                    <h4 class="card-title"><input type="checkbox">&nbsp;Airplane</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body text-center" style="margin: 1px;padding: 10px;"><img src="assets/img/clipboard-image-1.png" style="width: 53px;">
-                    <h4 class="card-title"><input type="checkbox">&nbsp;Airplane</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body text-center" style="margin: 1px;padding: 10px;"><img src="assets/img/clipboard-image-1.png" style="width: 53px;">
-                    <h4 class="card-title"><input type="checkbox">&nbsp;Airplane</h4>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pvp-script.js"></script>
