@@ -2,8 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const objects = [
-    "Air",
+let test = ["Air",
     "Airplane",
     "Alien",
     "Axe",
@@ -93,10 +92,11 @@ const objects = [
     "Water",
     "Whip",
     "Wolf",
-    "Woman",]
+    "Woman"]
+
 
 router.get('/', (req, res) => {
-    res.send(JSON.stringify(objects));
+    res.json(test);
 });
 
 module.exports = router;
