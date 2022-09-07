@@ -15,6 +15,9 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 /**
  * Create HTTP server.
  */
