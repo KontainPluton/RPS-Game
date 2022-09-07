@@ -1,6 +1,6 @@
 const express = require('express');
 
-const gameRoute = require('./game');
+const gameRoute = require('./object');
 
 const router = express.Router();
 
