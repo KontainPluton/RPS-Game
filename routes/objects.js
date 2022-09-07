@@ -1,4 +1,5 @@
 const express = require('express')
+const fetch = require("node-fetch");
 
 const router = express.Router()
 
@@ -97,6 +98,22 @@ let test = ["Air",
 
 router.get('/', (req, res) => {
     res.json(test);
+});
+
+router.get('/:object', (req, res) => {
+    let url = process.env.RPS_API_URL + "/objects/" + req.params.object;
+    fetch(url)
+        .then(function(response) {
+            let contentType = response.headers.get("content-type");
+            if(contentType && contentType.indexOf("application/json") !== -1) {
+                response.json().then(function(json) {
+                    res.send(json);
+                });
+            }
+            else {
+                res.status(400).send(new Error("No json provided"));
+            }
+        });
 });
 
 module.exports = router;
