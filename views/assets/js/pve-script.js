@@ -2,6 +2,7 @@ let select = document.getElementById('choice');
 let sendButon = document.getElementById('sendButton');
 let winnerText = document.getElementById('winnerText');
 let resultText = document.getElementById('resultText');
+let listObjects = document.getElementById('list-objects');
 
 function searchObject(){
     let url = 'api/objects/'
@@ -20,6 +21,7 @@ function searchObject(){
             select.appendChild(opt);
         }
     })
+    .catch(error => console.log(error));
 }
 
 sendButon.addEventListener('click', function(){
@@ -49,8 +51,44 @@ sendButon.addEventListener('click', function(){
         else{
             winnerText.innerHTML = 'Egalité !';
         }
+
+        listObjects.innerHTML = '';
+
+        listObjects.appendChild(generatePicture(winner));
+        listObjects.appendChild(generatePicture(loser));
     })
+    .catch(error => console.log(error));
 })
+
+function generatePicture(object) {
+
+    let divObject = document.createElement('div');
+    divObject.className = "col";
+
+    let ext = ".png";
+
+    if(!checkFileExist("assets/images/"+object+".png")) {
+        ext = ".gif";
+    }
+
+    divObject.innerHTML =  '<div class="card"><div class="card-body text-center" style="margin: 1px;padding: 10px;">'
+    + '<img src="assets/images/' + object + ext + '" style="width: 53px;">'
+    + '<h4 class="card-title">&nbsp;' + object + '</h4></div></div>';
+
+    return divObject;
+}
+
+function checkFileExist(urlToFile) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    xhr.send();
+     
+    if (xhr.status == "404") {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 searchObject();
 
