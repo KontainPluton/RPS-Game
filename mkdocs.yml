@@ -7,8 +7,10 @@ theme:
     edit: material/file-document-edit
 repo_url: https://github.com/KontainPluton/RPS-Game
 repo_name: KontainPluton/RPS-Game
+edit_uri: edit/main/docs/
 nav:
-  - Introduction: index.md
+  - Informations: index.md
+  - API: api.md
   - Build & Tests: build.md
   - Jouer en local: local.md
   - A propos: about.md
