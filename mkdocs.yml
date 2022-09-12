@@ -14,3 +14,6 @@ nav:
   - Build & Tests: build.md
   - Jouer en local: local.md
   - A propos: about.md
+
+plugins:
+  - swagger-ui-tag
