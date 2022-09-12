@@ -1,0 +1,13 @@
+site_name: RPS-Game
+theme:
+  name: material
+  language: fr
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/file-document-edit
+repo_url: https://github.com/KontainPluton/RPS-Game
+nav:
+  - Introduction: index.md
+  - Build & Tests: build.md
+  - Jouer en local: local.md
+  - A propos: about.md
