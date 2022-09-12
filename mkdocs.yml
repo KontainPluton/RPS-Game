@@ -6,6 +6,7 @@ theme:
     repo: fontawesome/brands/github
     edit: material/file-document-edit
 repo_url: https://github.com/KontainPluton/RPS-Game
+repo_name: KontainPluton/RPS-Game
 nav:
   - Introduction: index.md
   - Build & Tests: build.md
