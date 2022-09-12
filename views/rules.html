@@ -19,10 +19,10 @@
                     </svg></span><span style="color: rgba(255,255,255,0.9);"><strong>RPS GAME</strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item" style="background: var(--bs-white);border-radius: 30px;margin-right: 15px;"><a class="nav-link active" href="index.html"><strong>Accueil</strong></a></li>
+                    <li class="nav-item" style="background: var(--bs-white);border-radius: 30px;margin-right: 15px;"><a class="nav-link active" href="index.html">Accueil</a></li>
                     <li class="nav-item" style="background: #ffffff;border-radius: 30px;margin-right: 15px;"><a class="nav-link active" href="pvp.html">Jouer (PvP)</a></li>
                     <li class="nav-item" style="background: #ffffff;border-radius: 30px;margin-right: 15px;"><a class="nav-link active" href="pve.html">Jouer (PvE)</a></li>
-                    <li class="nav-item" style="background: var(--bs-white);border-radius: 30px;margin-right: 15px;"><a class="nav-link active" href="rules.html">Règles</a></li>
+                    <li class="nav-item" style="background: var(--bs-white);border-radius: 30px;margin-right: 15px;"><a class="nav-link active" href="rules.html"><strong>Règles</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -30,33 +30,33 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-body"><img src="assets/img/logo-pVP.png" style="width: 100%;padding: 30px;">
-                    <h4 class="card-title">PvP</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Jouer contre un autre joueur</h6>
-                    <p class="card-text">Battez vous dans un duel sans fin contre votre plus grand adversaire ! VOTRE MEILLEUR AMI.E !</p><a class="card-link" href="#">Lien</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title"><img src="assets/img/logo-windows-vista.png" style="width: 100%;padding: 30px;">PvE</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Jouer contre l'ordinateur</h6>
-                    <p class="card-text">Battez vous contre la meilleure IA de l'univers développée par les ingénieurs de la NASA !</p><a class="card-link" href="#">Lien</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body"><img src="assets/img/logo-wikipedio.png" style="width: 100%;padding: 30px;">
-                    <h4 class="card-title">Règles</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Règles et Objets dans le jeu</h6>
-                    <p class="card-text">Le grand grimoire des règles et des objets disponible dans notre fabuleux jeu !</p><a class="card-link" href="#">Lien</a>
+                <div class="card-body text-center">
+                    <h4 class="card-title">--- Règles ---</h4>
+                    <p>Le système va afficher la liste des objets qui perdent face à l'objet sélectionné.</p>
+                    <h6 class="text-muted card-subtitle mb-2">Choix de l'objet :</h6><select id="choice">
+                    </select><button class="btn btn-primary" id="sendButton" type="button" style="margin-left: 14px;">Envoyer</button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row" style="margin-top: 18px;">
+        <div class="col text-center">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Message</th>
+                            <th>Objet</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-objects">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/rules-script.js"></script>
 </body>
 
 </html>
