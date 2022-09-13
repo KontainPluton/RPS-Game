@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         object2 = await generate();
     }
     let url = process.env.RPS_API_URL + "/match?object_one=" + object1 +"&object_two=" + object2;
-    fetch(url)
+    await fetch(url)
         .then(function(response) {
             let contentType = response.headers.get("content-type");
             if(contentType && contentType.indexOf("application/json") !== -1) {
