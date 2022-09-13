@@ -10,3 +10,5 @@ Ce site web est créé dans le cadre d'une formation à l'IMT Mines Alès. Celui
 - BOMPUIS Alexandre
 - L'HERMENIER Tom
 - LOCATELLI Julia
+
+(INFRES 13)

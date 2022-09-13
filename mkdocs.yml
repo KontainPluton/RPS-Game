@@ -13,5 +13,4 @@ nav:
   - API: api.md
   - API description file: swagger.json
   - Build & Tests: build.md
-  - Jouer en local: local.md
   - A propos: about.md
