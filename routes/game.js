@@ -36,7 +36,11 @@ async function generate() {
             await response.json().then(function (tab) {
                 value = tab[Math.floor(Math.random() * tab.length)];
             });
+        })
+        .catch(async function (error) {
+            res.status(500).send(new Error("Internal server error : " + error));
         });
+
     return value;
 }
 
