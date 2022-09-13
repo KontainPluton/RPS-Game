@@ -5,4 +5,5 @@ Dockerfile
 .github
 LICENSE
 node_modules
-README
+README.md
+site

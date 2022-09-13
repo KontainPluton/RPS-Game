@@ -1,0 +1,150 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "RPS Game API",
+    "description": "Une api interne permettant de :\n  - faire les échanges entre l'api RPS de base et le front\n  - corriger les problèmes de l'api initial en implément",
+    "version": "1.0.11"
+  },
+  "tags": [
+    {
+      "name": "objects",
+      "description": "Tous les objets qui peuvent être utilisés pour jouer"
+    },
+    {
+      "name": "game",
+      "description": "Effectue le déroulement d'un jeu"
+    }
+  ],
+  "paths": {
+    "/game/": {
+      "get": {
+        "tags": [
+          "game"
+        ],
+        "summary": "Joue une partie",
+        "description": "Utilise deux objets envoyés en query de cette requête afin de jouer une partie",
+        "parameters": [
+          {
+            "name": "object_one",
+            "in": "query",
+            "description": "Le premier objet utilisé pour le jeu",
+            "required": true,
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "nuke"
+            }
+          },
+          {
+            "name": "object_two",
+            "in": "query",
+            "description": "Le second objet utilisé pour le jeu",
+            "required": true,
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "tank"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jeu réalisé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "winner": {
+                      "type": "string",
+                      "description": "l'objet qui a gagné",
+                      "example": "nuke"
+                    },
+                    "outcomes": {
+                      "type": "string",
+                      "description": "une verbe / une phrase qui décrit la façon dont l'objet a gagné",
+                      "example": "incinerates"
+                    },
+                    "loser": {
+                      "type": "string",
+                      "description": "l'objet qui a perdu",
+                      "example": "tank"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objects/": {
+      "get": {
+        "tags": [
+          "objects"
+        ],
+        "summary": "Renvoie tous les objets disponibles",
+        "description": "Renvoie tous les objets disponibles dans la liste des 101 objetcs",
+        "responses": {
+          "200": {
+            "description": "liste des objet utilisable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "objects": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objects/object": {
+      "get": {
+        "tags": [
+          "objects"
+        ],
+        "summary": "Renvoie les informations d'un objet",
+        "responses": {
+          "200": {
+            "description": "liste des objet utilisable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "object": {
+                      "type": "string",
+                      "example": "nuke"
+                    },
+                    "winning outcomes": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": [
+                            "poisons",
+                            "Sky"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

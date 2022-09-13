@@ -1,15 +1,36 @@
-name: RPS-Game Test CI
+name: RPS-Game Build & Test CI
 
 on: [push]
 
 jobs:
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install modules
-      run: npm install
+      - name: Install modules
+        run: npm install
 
-    - name: Run tests
-      run: npm test
+      - name: Run tests
+        run: npm test
+
+  build-doc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install mkdocs-material theme
+        run: pip install mkdocs-material
+
+      - name: Build documentation
+        run: mkdocs build
+
+      - name: Archive mkdocs documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: doc
+          path: site/*

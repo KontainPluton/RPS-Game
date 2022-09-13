@@ -1,0 +1,16 @@
+site_name: RPS-Game
+theme:
+  name: material
+  language: fr
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/file-document-edit
+repo_url: https://github.com/KontainPluton/RPS-Game
+repo_name: KontainPluton/RPS-Game
+edit_uri: edit/main/docs/
+nav:
+  - Informations: index.md
+  - API: api.md
+  - API description file: swagger.json
+  - Build & Tests: build.md
+  - A propos: about.md
