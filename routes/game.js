@@ -9,10 +9,12 @@ router.get('/', async (req, res) => {
     let object2 = req.query.object_two;
     if (object1 == null) {
         res.status(400).send(new Error("Invalid signature"));
+        return;
     }
     else if (object2 == null) {
         object2 = await generate();
     }
+
     let url = process.env.RPS_API_URL + "/match?object_one=" + object1 +"&object_two=" + object2;
     await fetch(url)
         .then(function(response) {
