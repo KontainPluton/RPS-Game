@@ -55,6 +55,7 @@ let test = ["Air",
     "Man",
     "Math",
     "Medusa",
+    "Nuke",
     "Platimum",
     "Poison",
     "Police",
@@ -100,17 +101,16 @@ router.get('/', (req, res) => {
     res.json(test);
 });
 
-router.get('/:object', (req, res) => {
+router.get('/:object', async (req, res) => {
     let url = process.env.RPS_API_URL + "/objects/" + req.params.object;
-    fetch(url)
-        .then(function(response) {
+    await fetch(url)
+        .then(function (response) {
             let contentType = response.headers.get("content-type");
-            if(contentType && contentType.indexOf("application/json") !== -1) {
-                response.json().then(function(json) {
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                response.json().then(function (json) {
                     res.send(json);
                 });
-            }
-            else {
+            } else {
                 res.status(400).send(new Error("No json provided"));
             }
         });

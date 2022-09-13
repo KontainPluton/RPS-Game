@@ -9,12 +9,14 @@ router.get('/', async (req, res) => {
     let object2 = req.query.object_two;
     if (object1 == null) {
         res.status(400).send(new Error("Invalid signature"));
+        return;
     }
     else if (object2 == null) {
         object2 = await generate();
     }
+
     let url = process.env.RPS_API_URL + "/match?object_one=" + object1 +"&object_two=" + object2;
-    fetch(url)
+    await fetch(url)
         .then(function(response) {
             let contentType = response.headers.get("content-type");
             if(contentType && contentType.indexOf("application/json") !== -1) {
@@ -36,7 +38,11 @@ async function generate() {
             await response.json().then(function (tab) {
                 value = tab[Math.floor(Math.random() * tab.length)];
             });
+        })
+        .catch(async function (error) {
+            res.status(500).send(new Error("Internal server error : " + error));
         });
+
     return value;
 }
 

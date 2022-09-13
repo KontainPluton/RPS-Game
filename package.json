@@ -1,6 +1,6 @@
 {
   "name": "RPS-Game",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Just a RPS game ...",
   "main": "app.js",
   "private": true,
